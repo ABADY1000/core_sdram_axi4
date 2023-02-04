@@ -2,7 +2,7 @@
 ## Tool paths
 ###############################################################################
 VERILATOR_SRC ?= /usr/share/verilator/include
-SYSTEMC_HOME  ?= /usr/local/systemc-2.3.1
+SYSTEMC_HOME  ?= /usr/local/systemc-2.3.3
 
 export VERILATOR_SRC
 export SYSTEMC_HOME
@@ -27,4 +27,8 @@ run: build
 	./build/test.x
 
 view:
-	gtkwave verilator.vcd gtksettings.sav
+	# gtkwave verilator.vcd gtksettings.sav
+	gtkwave TREACER.vcd
+
+debug:
+	gdb ./build/test.x
