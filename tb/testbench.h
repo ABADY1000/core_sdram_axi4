@@ -87,7 +87,7 @@ public:
 
         // verilator_trace_enable("./verilator.vcd", m_dut);
 
-        file = sc_create_vcd_trace_file("TREACER");
+        file = sc_create_vcd_trace_file("TRACER");
         sc_trace(file, clk, "clk");
         sc_trace(file, rst, "reset");
         sc_trace(file, axi_m, "AXI_MASTER");
