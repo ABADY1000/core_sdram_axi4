@@ -99,12 +99,12 @@ begin
     2'd2: // AXI4_BURST_WRAP
     begin
         case (axlen)
-        8'd0:      mask = 32'h03;
-        8'd1:      mask = 32'h07;
-        8'd3:      mask = 32'h0F;
-        8'd7:      mask = 32'h1F;
-        8'd15:     mask = 32'h3F;
-        default:   mask = 32'h3F;
+            8'd0:      mask = 32'h03;
+            8'd1:      mask = 32'h07;
+            8'd3:      mask = 32'h0F;
+            8'd7:      mask = 32'h1F;
+            8'd15:     mask = 32'h3F;
+            default:   mask = 32'h3F;
         endcase
 
         calculate_addr_next = (addr & ~mask) | ((addr + 4) & mask);
@@ -132,7 +132,7 @@ reg         req_hold_wr_q;
 wire        req_fifo_accept_w;
 
 //-----------------------------------------------------------------
-// Sequential
+// Sequential - Receiving commands
 //-----------------------------------------------------------------
 always @ (posedge clk_i or posedge rst_i)
 if (rst_i)
@@ -201,23 +201,24 @@ begin
     end
 end
 
-always @ (posedge clk_i or posedge rst_i)
-if (rst_i)
-begin
-    req_hold_rd_q   <= 1'b0;
-    req_hold_wr_q   <= 1'b0;
-end
-else
-begin
-    if (ram_rd_o && !ram_accept_i)
-        req_hold_rd_q   <= 1'b1;
-    else if (ram_accept_i)
+always @ (posedge clk_i or posedge rst_i) begin
+    if (rst_i)
+    begin
         req_hold_rd_q   <= 1'b0;
-
-    if ((|ram_wr_o) && !ram_accept_i)
-        req_hold_wr_q   <= 1'b1;
-    else if (ram_accept_i)
         req_hold_wr_q   <= 1'b0;
+    end
+    else
+    begin
+        if (ram_rd_o && !ram_accept_i)
+            req_hold_rd_q   <= 1'b1;
+        else if (ram_accept_i)
+            req_hold_rd_q   <= 1'b0;
+
+        if ((|ram_wr_o) && !ram_accept_i)
+            req_hold_wr_q   <= 1'b1;
+        else if (ram_accept_i)
+            req_hold_wr_q   <= 1'b0;
+    end
 end
 
 //-----------------------------------------------------------------
