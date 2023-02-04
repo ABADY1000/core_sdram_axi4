@@ -9,7 +9,7 @@
         if (waves_enabled()) \
         { \
             Verilated::traceEverOn(true); \
-            VerilatedVcdSc *v_vcd = new VerilatedVcdSc; \
+            v_vcd = new VerilatedVcdSc; \
             sc_core::sc_time delay_us; \
             if (waves_delayed(delay_us)) \
                 dut->trace_enable (v_vcd, delay_us); \
@@ -60,7 +60,7 @@ public:
     {
         char *s = getenv("ENABLE_WAVES");
         if (s && !strcmp(s, "no"))
-            return false;
+            return true;
         else
             return true;
     }
