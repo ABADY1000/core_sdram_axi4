@@ -14,7 +14,7 @@ NAME             ?= sdram_axi
 RTL_INCLUDE       = 
 
 # Verilator options
-VERILATE_PARAMS  ?= --trace
+VERILATE_PARAMS  ?= --exe --trace
 VERILATOR_OPTS   ?= --pins-sc-uint
 
 TARGETS          ?= $(OUTPUT_DIR)/V$(NAME)
