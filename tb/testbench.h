@@ -87,17 +87,6 @@ public:
 
         // verilator_trace_enable("./verilator.vcd", m_dut);
 
-        // if (waves_enabled()){
-        //     Verilated::traceEverOn(true);
-        //     v_vcd = new VerilatedVcdSc;
-        //     sc_core::sc_time delay_us;
-        //     if (waves_delayed(delay_us))
-        //         m_dut->trace_enable (v_vcd, delay_us);
-        //     else
-        //         m_dut->trace_enable (v_vcd);
-        //     v_vcd->open ("./verilator.vcd");
-        //     this->m_verilate_vcd = v_vcd;
-        // }
         file = sc_create_vcd_trace_file("TREACER");
         sc_trace(file, clk, "clk");
         sc_trace(file, rst, "reset");
