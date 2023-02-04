@@ -6,3 +6,4 @@
 **/verilated
 **/*.vcd
 .gdb_history
+.vscode

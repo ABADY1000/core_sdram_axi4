@@ -1,0 +1,9 @@
+I installed three copies of systemc
+
+1- pure lib using make and configure file (archive)
+2- lib with debug symbols using make and configure file (archive2)
+3- lib with debug symbols using cmake (only static lib)
+4- lib with debug symbols using cmake (only shared lib)
+
+
+TODO: Fix new SystemC lib installation (comment the two additional constructor)
