@@ -11,9 +11,13 @@
 #define MEM_BASE 0x00000000
 #define MEM_SIZE (512 * 1024)
 
+#define ITERATIONS    5000
+#define MAX_BURST_LEN 32
 //-----------------------------------------------------------------
 // Module
 //-----------------------------------------------------------------
+VerilatedVcdSc *v_vcd;
+
 class testbench: public testbench_vbase
 {
 public:
@@ -51,7 +55,7 @@ public:
              m_mem->write(MEM_BASE + i, i);
         }
 
-        m_sequencer->start(50000);
+        m_sequencer->start(ITERATIONS);
         m_sequencer->wait_complete();
         sc_stop();
     }
@@ -63,7 +67,7 @@ public:
         m_driver->axi_out(axi_m);
         m_driver->axi_in(axi_s);
 
-        m_sequencer = new tb_mem_test("SEQ", m_driver, 32);
+        m_sequencer = new tb_mem_test("SEQ", m_driver, MAX_BURST_LEN);
         m_sequencer->clk_in(clk);
         m_sequencer->rst_in(rst);
 
@@ -81,6 +85,32 @@ public:
         m_mem->sdram_in(sdram_io_m);
         m_mem->sdram_out(sdram_io_s);
 
-        verilator_trace_enable("verilator.vcd", m_dut);
+        // verilator_trace_enable("./verilator.vcd", m_dut);
+
+        // if (waves_enabled()){
+        //     Verilated::traceEverOn(true);
+        //     v_vcd = new VerilatedVcdSc;
+        //     sc_core::sc_time delay_us;
+        //     if (waves_delayed(delay_us))
+        //         m_dut->trace_enable (v_vcd, delay_us);
+        //     else
+        //         m_dut->trace_enable (v_vcd);
+        //     v_vcd->open ("./verilator.vcd");
+        //     this->m_verilate_vcd = v_vcd;
+        // }
+        file = sc_create_vcd_trace_file("TREACER");
+        sc_trace(file, clk, "clk");
+        sc_trace(file, rst, "reset");
+        sc_trace(file, axi_m, "AXI_MASTER");
+        sc_trace(file, axi_s, "AXI_SLAVE");
+        sc_trace(file, sdram_io_m, "SDRAM_m");
+        sc_trace(file, sdram_io_s, "SDRAM_s");
     }
+
+    ~testbench(){
+        sc_close_vcd_trace_file(file);
+    }
+
+private:
+    sc_trace_file* file;
 };
