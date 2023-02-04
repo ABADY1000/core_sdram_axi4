@@ -1,0 +1,8 @@
+**/*.o
+**/*.a
+**/build
+**/obj
+**/obj_verilated
+**/verilated
+**/*.vcd
+.gdb_history
