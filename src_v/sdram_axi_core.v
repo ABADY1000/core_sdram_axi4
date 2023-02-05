@@ -70,7 +70,7 @@ module sdram_axi_core
 parameter SDRAM_MHZ              = 50;
 parameter SDRAM_ADDR_W           = 24;
 parameter SDRAM_COL_W            = 9;
-parameter SDRAM_READ_LATENCY     = 2;
+parameter SDRAM_READ_LATENCY     = 3;
 
 //-----------------------------------------------------------------
 // Defines / Local params
@@ -93,8 +93,8 @@ localparam CMD_PRECHARGE     = 4'b0010;
 localparam CMD_REFRESH       = 4'b0001;
 localparam CMD_LOAD_MODE     = 4'b0000;
 
-// Mode: Burst Length = 4 bytes, CAS=2
-localparam MODE_REG          = {3'b000,1'b0,2'b00,3'b010,1'b0,3'b001};
+// Mode: Burst Length = 2 bytes, CAS=3
+localparam MODE_REG          = {3'b000,1'b0,2'b00,3'b011,1'b0,3'b001};
 
 // SM states
 localparam STATE_W           = 4;
@@ -447,6 +447,7 @@ else if (refresh_timer_q == {REFRESH_CNT_W{1'b0}})
     refresh_timer_q <= SDRAM_REFRESH_CYCLES;
 else
     refresh_timer_q <= refresh_timer_q - 1;
+
 
 always @ (posedge clk_i or posedge rst_i)
 if (rst_i)

@@ -172,7 +172,8 @@ void tb_sdram_mem::process(void)
             uint32_t data = read32((uint32_t)addr);
             DPRINTF("SDRAM: READ %08x = %08x [Row=%x, Bank=%x, Col=%x]\n", (uint32_t)addr, data, (unsigned)row, (unsigned)bank, (unsigned)col);
 
-            resp_data[m_cas_latency-2] = data >> (m_burst_offset * 8);
+            // resp_data[m_cas_latency-2] = data >> (m_burst_offset * 8);
+            resp_data[m_cas_latency-1] = data >> (m_burst_offset * 8);
             m_burst_offset += 2;
 
             switch (m_burst_length)
@@ -349,7 +350,8 @@ void tb_sdram_mem::process(void)
             uint32_t data = read32((uint32_t)addr);
             DPRINTF("SDRAM: READ %08x = %08x [Row=%x, Bank=%x, Col=%x]\n", (uint32_t)addr, data, (unsigned)row, (unsigned)bank, (unsigned)col);
 
-            resp_data[m_cas_latency-2] = data >> (m_burst_offset * 8);
+            // resp_data[m_cas_latency-2] = data >> (m_burst_offset * 8);
+            resp_data[m_cas_latency-1] = data >> (m_burst_offset * 8);
             m_burst_offset += 2;
 
             // Continue...
