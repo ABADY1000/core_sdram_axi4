@@ -28,7 +28,7 @@ run: build
 
 view:
 	# gtkwave verilator.vcd gtksettings.sav
-	gtkwave TREACER.vcd
+	gtkwave TRACER.vcd gtksettings_mine.sav
 
 debug:
 	gdb ./build/test.x
