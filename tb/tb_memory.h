@@ -32,7 +32,7 @@ public:
     {
         if (match(addr))
         {
-            if (m_trace) printf("WRITE: %08x=%02x\n", addr, data);
+            // if (m_trace) printf("WRITE: %08x=%02x\n", addr, data);
             m_mem[addr - m_base] = data;
         }
     }
@@ -41,7 +41,7 @@ public:
     {
         if (match(addr))
         {
-            if (m_trace) printf("READ: %08x=%02x\n", addr, m_mem[addr - m_base]);
+            // if (m_trace) printf("READ: %08x=%02x\n", addr, m_mem[addr - m_base]);
             return m_mem[addr - m_base];
         }
         else
