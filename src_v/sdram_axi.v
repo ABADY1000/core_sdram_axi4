@@ -37,36 +37,36 @@ module sdram_axi
     // Inputs
      input           clk_i
     ,input           rst_i
-    ,input           inport_awvalid_i
-    ,input  [ 31:0]  inport_awaddr_i
-    ,input  [  3:0]  inport_awid_i
-    ,input  [  7:0]  inport_awlen_i
-    ,input  [  1:0]  inport_awburst_i
-    ,input           inport_wvalid_i
-    ,input  [ 31:0]  inport_wdata_i
-    ,input  [  3:0]  inport_wstrb_i
-    ,input           inport_wlast_i
-    ,input           inport_bready_i
-    ,input           inport_arvalid_i
-    ,input  [ 31:0]  inport_araddr_i
-    ,input  [  3:0]  inport_arid_i
-    ,input  [  7:0]  inport_arlen_i
-    ,input  [  1:0]  inport_arburst_i
-    ,input           inport_rready_i
+    ,input           inport_awvalid
+    ,input  [ 31:0]  inport_awaddr
+    ,input  [  3:0]  inport_awid
+    ,input  [  7:0]  inport_awlen
+    ,input  [  1:0]  inport_awburst
+    ,input           inport_wvalid
+    ,input  [ 31:0]  inport_wdata
+    ,input  [  3:0]  inport_wstrb
+    ,input           inport_wlast
+    ,input           inport_bready
+    ,input           inport_arvalid
+    ,input  [ 31:0]  inport_araddr
+    ,input  [  3:0]  inport_arid
+    ,input  [  7:0]  inport_arlen
+    ,input  [  1:0]  inport_arburst
+    ,input           inport_rready
     ,input  [ 15:0]  sdram_data_input_i
 
     // Outputs
-    ,output          inport_awready_o
-    ,output          inport_wready_o
-    ,output          inport_bvalid_o
-    ,output [  1:0]  inport_bresp_o
-    ,output [  3:0]  inport_bid_o
-    ,output          inport_arready_o
-    ,output          inport_rvalid_o
-    ,output [ 31:0]  inport_rdata_o
-    ,output [  1:0]  inport_rresp_o
-    ,output [  3:0]  inport_rid_o
-    ,output          inport_rlast_o
+    ,output          inport_awready
+    ,output          inport_wready
+    ,output          inport_bvalid
+    ,output [  1:0]  inport_bresp
+    ,output [  3:0]  inport_bid
+    ,output          inport_arready
+    ,output          inport_rvalid
+    ,output [ 31:0]  inport_rdata
+    ,output [  1:0]  inport_rresp
+    ,output [  3:0]  inport_rid
+    ,output          inport_rlast
     ,output          sdram_clk_o
     ,output          sdram_cke_o
     ,output          sdram_cs_o
@@ -110,33 +110,33 @@ u_axi
     .rst_i(rst_i),
 
     // AXI port
-    .axi_awvalid_i(inport_awvalid_i),
-    .axi_awaddr_i(inport_awaddr_i),
-    .axi_awid_i(inport_awid_i),
-    .axi_awlen_i(inport_awlen_i),
-    .axi_awburst_i(inport_awburst_i),
-    .axi_wvalid_i(inport_wvalid_i),
-    .axi_wdata_i(inport_wdata_i),
-    .axi_wstrb_i(inport_wstrb_i),
-    .axi_wlast_i(inport_wlast_i),
-    .axi_bready_i(inport_bready_i),
-    .axi_arvalid_i(inport_arvalid_i),
-    .axi_araddr_i(inport_araddr_i),
-    .axi_arid_i(inport_arid_i),
-    .axi_arlen_i(inport_arlen_i),
-    .axi_arburst_i(inport_arburst_i),
-    .axi_rready_i(inport_rready_i),
-    .axi_awready_o(inport_awready_o),
-    .axi_wready_o(inport_wready_o),
-    .axi_bvalid_o(inport_bvalid_o),
-    .axi_bresp_o(inport_bresp_o),
-    .axi_bid_o(inport_bid_o),
-    .axi_arready_o(inport_arready_o),
-    .axi_rvalid_o(inport_rvalid_o),
-    .axi_rdata_o(inport_rdata_o),
-    .axi_rresp_o(inport_rresp_o),
-    .axi_rid_o(inport_rid_o),
-    .axi_rlast_o(inport_rlast_o),
+    .axi_awvalid_i(inport_awvalid),
+    .axi_awaddr_i(inport_awaddr),
+    .axi_awid_i(inport_awid),
+    .axi_awlen_i(inport_awlen),
+    .axi_awburst_i(inport_awburst),
+    .axi_wvalid_i(inport_wvalid),
+    .axi_wdata_i(inport_wdata),
+    .axi_wstrb_i(inport_wstrb),
+    .axi_wlast_i(inport_wlast),
+    .axi_bready_i(inport_bready),
+    .axi_arvalid_i(inport_arvalid),
+    .axi_araddr_i(inport_araddr),
+    .axi_arid_i(inport_arid),
+    .axi_arlen_i(inport_arlen),
+    .axi_arburst_i(inport_arburst),
+    .axi_rready_i(inport_rready),
+    .axi_awready_o(inport_awready),
+    .axi_wready_o(inport_wready),
+    .axi_bvalid_o(inport_bvalid),
+    .axi_bresp_o(inport_bresp),
+    .axi_bid_o(inport_bid),
+    .axi_arready_o(inport_arready),
+    .axi_rvalid_o(inport_rvalid),
+    .axi_rdata_o(inport_rdata),
+    .axi_rresp_o(inport_rresp),
+    .axi_rid_o(inport_rid),
+    .axi_rlast_o(inport_rlast),
     
     // RAM interface
     .ram_addr_o(ram_addr_w),
