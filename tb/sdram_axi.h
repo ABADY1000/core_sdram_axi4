@@ -6,6 +6,8 @@
 #include "axi4.h"
 #include "sdram_io.h"
 
+#define VM_TRACE 1
+
 class Vsdram_axi;
 class VerilatedVcdSc;
 
@@ -58,35 +60,35 @@ public:
 private:
     sc_signal <bool> m_clk_in;
     sc_signal <bool> m_rst_in;
-    sc_signal <bool> m_inport_awvalid_in;
-    sc_signal <sc_uint<32> > m_inport_awaddr_in;
-    sc_signal <sc_uint<4> > m_inport_awid_in;
-    sc_signal <sc_uint<8> > m_inport_awlen_in;
-    sc_signal <sc_uint<2> > m_inport_awburst_in;
-    sc_signal <bool> m_inport_wvalid_in;
-    sc_signal <sc_uint<32> > m_inport_wdata_in;
-    sc_signal <sc_uint<4> > m_inport_wstrb_in;
-    sc_signal <bool> m_inport_wlast_in;
-    sc_signal <bool> m_inport_bready_in;
-    sc_signal <bool> m_inport_arvalid_in;
-    sc_signal <sc_uint<32> > m_inport_araddr_in;
-    sc_signal <sc_uint<4> > m_inport_arid_in;
-    sc_signal <sc_uint<8> > m_inport_arlen_in;
-    sc_signal <sc_uint<2> > m_inport_arburst_in;
-    sc_signal <bool> m_inport_rready_in;
+    sc_signal <bool> m_inport_awvalid;
+    sc_signal <sc_uint<32> > m_inport_awaddr;
+    sc_signal <sc_uint<4> > m_inport_awid;
+    sc_signal <sc_uint<8> > m_inport_awlen;
+    sc_signal <sc_uint<2> > m_inport_awburst;
+    sc_signal <bool> m_inport_wvalid;
+    sc_signal <sc_uint<32> > m_inport_wdata;
+    sc_signal <sc_uint<4> > m_inport_wstrb;
+    sc_signal <bool> m_inport_wlast;
+    sc_signal <bool> m_inport_bready;
+    sc_signal <bool> m_inport_arvalid;
+    sc_signal <sc_uint<32> > m_inport_araddr;
+    sc_signal <sc_uint<4> > m_inport_arid;
+    sc_signal <sc_uint<8> > m_inport_arlen;
+    sc_signal <sc_uint<2> > m_inport_arburst;
+    sc_signal <bool> m_inport_rready;
     sc_signal <sc_uint<16> > m_sdram_data_input_in;
 
-    sc_signal <bool> m_inport_awready_out;
-    sc_signal <bool> m_inport_wready_out;
-    sc_signal <bool> m_inport_bvalid_out;
-    sc_signal <sc_uint<2> > m_inport_bresp_out;
-    sc_signal <sc_uint<4> > m_inport_bid_out;
-    sc_signal <bool> m_inport_arready_out;
-    sc_signal <bool> m_inport_rvalid_out;
-    sc_signal <sc_uint<32> > m_inport_rdata_out;
-    sc_signal <sc_uint<2> > m_inport_rresp_out;
-    sc_signal <sc_uint<4> > m_inport_rid_out;
-    sc_signal <bool> m_inport_rlast_out;
+    sc_signal <bool> m_inport_awready;
+    sc_signal <bool> m_inport_wready;
+    sc_signal <bool> m_inport_bvalid;
+    sc_signal <sc_uint<2> > m_inport_bresp;
+    sc_signal <sc_uint<4> > m_inport_bid;
+    sc_signal <bool> m_inport_arready;
+    sc_signal <bool> m_inport_rvalid;
+    sc_signal <sc_uint<32> > m_inport_rdata;
+    sc_signal <sc_uint<2> > m_inport_rresp;
+    sc_signal <sc_uint<4> > m_inport_rid;
+    sc_signal <bool> m_inport_rlast;
     sc_signal <bool> m_sdram_clk_out;
     sc_signal <bool> m_sdram_cke_out;
     sc_signal <bool> m_sdram_cs_out;

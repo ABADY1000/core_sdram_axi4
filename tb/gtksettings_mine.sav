@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
-[*] Sun Feb  5 11:00:21 2023
+[*] Mon Feb  6 13:10:49 2023
 [*]
 [dumpfile] "/home/ambat/Work/SDRAM/core_sdram_axi4/tb/TRACER.vcd"
-[dumpfile_mtime] "Sun Feb  5 10:59:27 2023"
+[dumpfile_mtime] "Mon Feb  6 12:53:40 2023"
 [dumpfile_size] 253669
 [savefile] "/home/ambat/Work/SDRAM/core_sdram_axi4/tb/gtksettings_mine.sav"
 [timestart] 51720
 [size] 1875 1056
 [pos] -1 -1
-*-5.264201 51815 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-5.264201 51820 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] SystemC.
 [sst_width] 345
 [signals_width] 230
@@ -27,22 +27,22 @@ SystemC.SDRAM_m/cke
 @800200
 -MODE
 @802028
-^1 /tmp/../home/ambat/Work/SDRAM/core_sdram_axi4/tb/mode_filter.gtkw
+^1 /home/ambat/Work/SDRAM/core_sdram_axi4/tb/../../../../../../tmp/../home/ambat/Work/SDRAM/core_sdram_axi4/tb/mode_filter.gtkw
 #{Mode} SystemC.SDRAM_m/we SystemC.SDRAM_m/cas SystemC.SDRAM_m/ras
 @1001200
 -group_end
 @802028
-^1 /tmp/../home/ambat/Work/SDRAM/core_sdram_axi4/tb/mode_filter.gtkw
+^1 /home/ambat/Work/SDRAM/core_sdram_axi4/tb/../../../../../../tmp/../home/ambat/Work/SDRAM/core_sdram_axi4/tb/mode_filter.gtkw
 #{MODE} SystemC.SDRAM_m/cs SystemC.SDRAM_m/ras SystemC.SDRAM_m/cas SystemC.SDRAM_m/we
 @2028
 [color] 2
-^1 /tmp/../home/ambat/Work/SDRAM/core_sdram_axi4/tb/mode_filter.gtkw
+^1 /home/ambat/Work/SDRAM/core_sdram_axi4/tb/../../../../../../tmp/../home/ambat/Work/SDRAM/core_sdram_axi4/tb/mode_filter.gtkw
 SystemC.SDRAM_m/cs
-^1 /tmp/../home/ambat/Work/SDRAM/core_sdram_axi4/tb/mode_filter.gtkw
+^1 /home/ambat/Work/SDRAM/core_sdram_axi4/tb/../../../../../../tmp/../home/ambat/Work/SDRAM/core_sdram_axi4/tb/mode_filter.gtkw
 SystemC.SDRAM_m/ras
-^1 /tmp/../home/ambat/Work/SDRAM/core_sdram_axi4/tb/mode_filter.gtkw
+^1 /home/ambat/Work/SDRAM/core_sdram_axi4/tb/../../../../../../tmp/../home/ambat/Work/SDRAM/core_sdram_axi4/tb/mode_filter.gtkw
 SystemC.SDRAM_m/cas
-^1 /tmp/../home/ambat/Work/SDRAM/core_sdram_axi4/tb/mode_filter.gtkw
+^1 /home/ambat/Work/SDRAM/core_sdram_axi4/tb/../../../../../../tmp/../home/ambat/Work/SDRAM/core_sdram_axi4/tb/mode_filter.gtkw
 SystemC.SDRAM_m/we
 @1001200
 -group_end
@@ -63,5 +63,10 @@ SystemC.SDRAM_s/data_input[15:0]
 -group_end
 @20000
 -
+@28
+SystemC.AXI_MASTER/rready
+SystemC.AXI_SLAVE/rvalid
+@22
+SystemC.AXI_SLAVE/rdata[31:0]
 [pattern_trace] 1
 [pattern_trace] 0

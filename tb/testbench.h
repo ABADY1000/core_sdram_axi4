@@ -94,6 +94,7 @@ public:
         sc_trace(file, axi_s, "AXI_SLAVE");
         sc_trace(file, sdram_io_m, "SDRAM_m");
         sc_trace(file, sdram_io_s, "SDRAM_s");
+        
     }
 
     ~testbench(){
