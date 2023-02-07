@@ -657,6 +657,9 @@ if (rst_i)
     rd_q    <= {(SDRAM_READ_LATENCY+2){1'b0}};
 else
     rd_q    <= {rd_q[SDRAM_READ_LATENCY:0], (state_q == STATE_READ)};
+//   _   _   _   _
+//|_| |_| |_| |_| |_|
+//  S   ^   ^   ^   ^
 
 //-----------------------------------------------------------------
 // Data Buffer
